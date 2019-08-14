@@ -1,0 +1,21 @@
+.carousel-caption
+{
+    color: black;
+}
+.titreNews
+{
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+.titreSondage
+{
+    border-top: solid black 1px;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    text-align: center;
+}
+.cardSondage
+{
+    margin-bottom: 3%;
+    border-bottom: solid black 1px;
+}

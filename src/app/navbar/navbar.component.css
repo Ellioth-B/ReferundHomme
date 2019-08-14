@@ -1,0 +1,11 @@
+a:hover
+{
+    background-color: grey;
+    border-radius: 30% 30% 30% 30%;
+}
+a
+{
+    cursor: pointer;
+}
+
+/* ajouter un bg qui reste lorsqu'on click sur un onglet de nav, pr savoir ou on est */
