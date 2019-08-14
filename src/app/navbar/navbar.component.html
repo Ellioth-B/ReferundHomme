@@ -18,7 +18,10 @@
           <a routerLink="/instructions" class="nav-link">Tutoriel</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/connection" class="nav-link">Se connecter</a>
+          <a routerLink="/admin/login" class="nav-link">Se connecter</a>
+        </li>
+        <li *ngIf="loggedIn" class="nav-item">
+          <a class="nav-link" (click)= "onSignOut()">Se déconnecter</a>
         </li>
       </ul>
     </div>
