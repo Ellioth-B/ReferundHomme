@@ -11,6 +11,8 @@ import { SondageComponent } from './sondage/sondage.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { TutoComponent } from './tuto/tuto.component';
 import { SigninComponent } from './admin/signin/signin.component';
+import { AdminAccueilComponent } from './admin/admin-accueil/admin-accueil.component';
+import { AdminActualiteComponent } from './admin/admin-actualite/admin-actualite.component';
 
 const appRoutes: Routes = [
   {
@@ -38,6 +40,10 @@ const appRoutes: Routes = [
     path: 'admin/login',
     component: SigninComponent
   },
+  {
+    path: 'admin/accueil',
+    component: AdminAccueilComponent
+  },
 ];
 
 @NgModule({
@@ -49,7 +55,9 @@ const appRoutes: Routes = [
     SondageComponent,
     ArchiveComponent,
     TutoComponent,
-    SigninComponent
+    SigninComponent,
+    AdminAccueilComponent,
+    AdminActualiteComponent
   ],
   imports: [
     BrowserModule,

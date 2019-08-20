@@ -1,0 +1,15 @@
+<div class="rounded shadow bg-white p-5">
+    <h3 class="font-weight-light">Nouvelle actualitée</h3>
+    <hr class="mt-0 bg-dark">
+    <form [formGroup]="actualiteForm" class="py-5" (ngSubmit)="onSaveActualite()">
+            <div class="form-group">
+                    <textarea class="form-control" id="title" placeholder="Titre" formControlName="title"
+                    rows="1"></textarea>
+                </div>
+        <div class="form-group">
+            <textarea class="form-control" id="description" placeholder="Description" formControlName="description"
+            rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary float-right" type="submit" [disabled]="actualiteForm.invalid">Enregistrer</button> 
+    </form>
+</div>
