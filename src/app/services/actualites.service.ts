@@ -28,6 +28,22 @@ export class ActualitesService {
   }
 
   removeActualite(actualite: Actualite) {
-    
+    const index = this.actualites.findIndex(
+      (actualiteElement) => {
+        if (actualiteElement === actualite) {
+          return true;
+        }
+      }
+    );
+    this.actualites.splice(index, 1);
+    this.saveActualites();
+    this.emitActualites();
+  }
+
+  getActualites() {
+    firebase.database().ref('/actualites').on('value', (data) => {
+      this.actualites = data.val() ? data.val() : [];
+      this.emitActualites();
+    });
   }
 }
