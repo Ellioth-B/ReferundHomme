@@ -46,4 +46,8 @@ export class ActualitesService {
       this.emitActualites();
     });
   }
+
+  updateActualite(actualite : Actualite, id: number) {
+    firebase.database().ref('/actualites/'+ id).update(actualite);
+  }
 }

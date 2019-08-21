@@ -39,14 +39,24 @@ export class AdminActualiteComponent implements OnInit, OnDestroy {
     });
   }
 
+  resetActualiteForm() {
+    this.editActualite = false;
+    this.actualiteForm.reset();
+  }
+
   onSaveActualite() {
     const id = this.actualiteForm.get('id').value;
     const title = this.actualiteForm.get('title').value;
     const description = this.actualiteForm.get('description').value;
 /*  const photos = this.photosAdded ? this.photosAdded : [];*/
     const newActualite = new Actualite(title, description); //manque photos apres description
-    this.actualitesService.createActualite(newActualite);
-    this.actualiteForm.reset();
+    
+    if(this.editActualite == true) {
+      this.actualitesService.updateActualite(newActualite, id)
+    } else {
+      this.actualitesService.createActualite(newActualite);
+    }
+    this.resetActualiteForm();
   }
 
   ngOnDestroy() {
@@ -55,6 +65,13 @@ export class AdminActualiteComponent implements OnInit, OnDestroy {
 
   onDeleteActualite(actualite: Actualite) {
     this.actualitesService.removeActualite(actualite);
+  }
+
+  onEditActualite(actualite: Actualite, id :number) {
+    this.actualiteForm.get('id').setValue(id);
+    this.actualiteForm.get('title').setValue(actualite.title);
+    this.actualiteForm.get('description').setValue(actualite.description);
+    this.editActualite = true;
   }
 
 }

@@ -1,6 +1,7 @@
 <div class="rounded shadow bg-white p-5">
     <h3 class="font-weight-light">Nouvelle actualitée</h3>
     <hr class="mt-0 bg-dark">
+    <button class="btn btn-primary m-1 float-right" (click)="resetActualiteForm()"><i class="fas fa-plus"></i> Ajouter une news</button>
     <form [formGroup]="actualiteForm" class="py-5" (ngSubmit)="onSaveActualite()">
         <input type="text" formControlName="id" hidden>
         <div class="form-group">
