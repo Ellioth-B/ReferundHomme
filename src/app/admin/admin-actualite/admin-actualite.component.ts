@@ -16,6 +16,9 @@ export class AdminActualiteComponent implements OnInit, OnDestroy {
   actualites: Actualite[];
   actualitesSubscription: Subscription;
   editActualite: boolean = false;
+  photoUploading: boolean = false;
+  photoUrl: string;
+  photoUploaded: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private actualitesService: ActualitesService) { }
@@ -50,13 +53,18 @@ export class AdminActualiteComponent implements OnInit, OnDestroy {
     const description = this.actualiteForm.get('description').value;
 /*  const photos = this.photosAdded ? this.photosAdded : [];*/
     const newActualite = new Actualite(title, description); //manque photos apres description
-    
+    if (this.photoUrl && this.photoUrl !== '') {
+      newActualite.photo = this.photoUrl;
+    }
+
     if(this.editActualite == true) {
       this.actualitesService.updateActualite(newActualite, id)
     } else {
       this.actualitesService.createActualite(newActualite);
     }
     this.resetActualiteForm();
+    this.photoUploaded = false; // une fois que le form est reset, photoUploaded devient false
+    this.photoUrl = ''; // une fois que le form est reset, photoUrl devient vide (pr acceuilir prochaine photo)
   }
 
   ngOnDestroy() {
@@ -65,6 +73,9 @@ export class AdminActualiteComponent implements OnInit, OnDestroy {
 
   onDeleteActualite(actualite: Actualite) {
     this.actualitesService.removeActualite(actualite);
+    if (actualite.photo) { // si photo existe alors on supprime
+      this.actualitesService.removeActualitePhoto(actualite.photo);
+    }
   }
 
   onEditActualite(actualite: Actualite, id :number) {
@@ -72,6 +83,17 @@ export class AdminActualiteComponent implements OnInit, OnDestroy {
     this.actualiteForm.get('title').setValue(actualite.title);
     this.actualiteForm.get('description').setValue(actualite.description);
     this.editActualite = true;
+  }
+
+  detectFile(event) {
+    this.photoUploading = true; // si detect photo, elle es en train de chargé
+    this.actualitesService.uploadFile(event.target.files[0]).then(
+      (url: string) => {
+        this.photoUrl = url;
+        this.photoUploading = false; // si on a l'url alors photo plus en train de chargé
+        this.photoUploaded = true;
+      }
+    ) // fichier envoyer sous forme de tabl, récupere le 1ere elemtn avec [0]
   }
 
 }
