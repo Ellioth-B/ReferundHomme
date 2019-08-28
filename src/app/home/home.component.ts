@@ -1,7 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Actualite } from '../models/Actualite.model';
 import { Subscription } from 'rxjs';
+import { Actualite } from '../models/Model';
 import { ActualitesService } from '../services/actualites.service';
+import { Sondage } from 'src/app/models/Model';
+import { SondageService }  from '../services/sondage.service';
+
 
 @Component({
   selector: 'app-home',
@@ -12,8 +15,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   actualites: Actualite [];
   actualitesSubscription: Subscription;
+  sondages: Sondage [];
+  sondagesSubscription: Subscription;
 
-  constructor(private actualitesService: ActualitesService) { }
+  constructor(private actualitesService: ActualitesService, private sondagesService: SondageService) { }
 
   
 
@@ -25,10 +30,19 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
     this.actualitesService.getActualites();
     this.actualitesService.emitActualites();
+    
+    this.sondagesSubscription = this.sondagesService.sondagesSubject.subscribe(
+      (sondages : Sondage[]) => {
+        this.sondages = sondages;
+      }     
+    );
+    this.sondagesService.getSondages();
+    this.sondagesService.emitSondages();
   }
 
   ngOnDestroy() {
     this.actualitesSubscription.unsubscribe();
+    this.sondagesSubscription.unsubscribe();
   }
 
 }

@@ -3,3 +3,8 @@ export class Actualite {
     constructor(public title: string, 
     public description: string,) {}
 }
+
+export class Sondage {
+    
+    constructor( public title: string, public subtitle: string, public description: string,) {}
+}

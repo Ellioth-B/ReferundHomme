@@ -1,14 +1,10 @@
 <div class="container-fluid">
     <h4 class="titreSondage">Sondages actuelles</h4>
-    <div class="cardSondage" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Bibliothèque</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Rue Lafonte ou Place Delacour ?</h6>
-            <p class="card-text">La construction d'une nouvelle bibliothèque débutera d'ici début 2020, celle-ci vient remplacer l'ancienne, devenu trop petite pour 
-            le nombre de citoyens grandissant de notre ville.
-            La mairie est a présent partager entre 2 emplacements, nous attendons votre avis avant de choisir.
-            <br>(mettre + de text descriptif décrivant les 2 lieux?)
-            </p>
+    <div class="cardSondage" style="width: 18rem;" >
+        <div class="card-body" *ngFor="let sondage of sondages; let i = index">
+            <h5 class="card-title">{{sondage.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{sondage.subtitle}}</h6>
+            <p class="card-text">{{sondage.description}}</p>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
@@ -22,30 +18,5 @@
                 Place Delacour
             </label>
         </div>
-    </div>
-
-
-    <div class="cardSondage" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Musée</h5>
-                <h6 class="card-subtitle mb-2 text-muted">18e arrondissement ou Impasse de la culture ?</h6>
-                <p class="card-text">La construction d'un nouveau musée débutera d'ici début 2020, celle-ci vient remplacer l'ancienne, devenu trop petite pour 
-                le nombre de citoyens grandissant de notre ville.
-                La mairie est a présent partager entre 2 emplacements, nous attendons votre avis avant de choisir.
-                <br>(mettre + de text descriptif décrivant les 2 lieux?)
-                </p>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                    18e arrondissement
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                    Impasse de la culture
-                </label>
-            </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActualitesService } from 'src/app/services/actualites.service';
-import { Actualite } from 'src/app/models/Actualite.model';
+import { Actualite } from 'src/app/models/Model';
 import { Subscription } from 'rxjs';
 import * as $ from 'jquery';
 

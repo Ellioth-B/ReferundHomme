@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
-import { Actualite } from '../models/Actualite.model';
 import { Subject } from 'rxjs';
+import { Actualite } from '../models/Model';
 import { reject } from 'q';
 
 @Injectable({

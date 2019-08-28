@@ -13,11 +13,11 @@ import { TutoComponent } from './tuto/tuto.component';
 import { SigninComponent } from './admin/signin/signin.component';
 import { AdminAccueilComponent } from './admin/admin-accueil/admin-accueil.component';
 import { AdminActualiteComponent } from './admin/admin-actualite/admin-actualite.component';
-
+import { AdminSondageComponent } from './admin/admin-sondage/admin-sondage.component';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/accueil',
     pathMatch: 'full'
   },
   {
@@ -44,6 +44,10 @@ const appRoutes: Routes = [
     path: 'admin/accueil',
     component: AdminAccueilComponent
   },
+  {
+    path: 'admin/sondage',
+    component: AdminSondageComponent
+  },
 ];
 
 @NgModule({
@@ -57,7 +61,8 @@ const appRoutes: Routes = [
     TutoComponent,
     SigninComponent,
     AdminAccueilComponent,
-    AdminActualiteComponent
+    AdminActualiteComponent,
+    AdminSondageComponent,
   ],
   imports: [
     BrowserModule,
