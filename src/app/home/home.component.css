@@ -19,3 +19,8 @@
     margin-bottom: 3%;
     border-bottom: solid black 1px;
 }
+.card-text
+{
+    overflow: hidden;
+    max-height: 300px;
+}
