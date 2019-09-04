@@ -1,0 +1,44 @@
+<div class="rounded shadow bg-white p-5">
+    <h3 class="font-weight-light">Nouveau sondage</h3>
+    <hr class="mt-0 bg-dark">
+    <button class="btn btn-primary m-1 float-right" (click)="resetSondageForm()"><i class="fas fa-plus"></i> Ajouter un
+        sondage</button>
+    <form [formGroup]="sondageForm" class="py-5" (ngSubmit)="onSaveSondage()">
+        <input type="text" formControlName="id" hidden>
+        <div class="form-group">
+            <textarea class="form-control" id="title" placeholder="Titre" formControlName="title" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="subtitle" placeholder="Sous-titre ou lieux" formControlName="subtitle"
+                rows="1"></textarea>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="description" placeholder="Description" formControlName="description"
+                rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary float-right" type="submit" [disabled]="sondageForm.invalid">Enregistrer</button>
+    </form>
+
+    <hr class="mt-1 mb-5 bg-dark">
+    <div class="row">
+        <div *ngFor="let sondage of sondages; let i = index" class="col-12 shadow-sm p-4 mb-3 bg-light">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="row">
+                        <h3 class="font-weight-normal pl-3">{{sondage.title}}</h3>
+                    </div>
+                    <div class="row">
+                        <h4 class="font-weight-normal pl-3">{{sondage.subtitle}}</h4>
+                        <div class="ml-auto">
+                            <button class="btn btn-primary m-1" (click)="onEditSondage(sondage, i)"><i
+                                    class="fas fa-edit"></i></button>
+                            <button class="btn btn-danger m-1" (click)="onDeleteSondage(sondage)"><i
+                                    class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>{{sondage.description}}</p>
+        </div>
+    </div>
+</div>

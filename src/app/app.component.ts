@@ -15,7 +15,7 @@ export class AppComponent {
     authDomain: "referundhomme.firebaseapp.com",
     databaseURL: "https://referundhomme.firebaseio.com",
     projectId: "referundhomme",
-    storageBucket: "",
+    storageBucket: "referundhomme.appspot.com",
     messagingSenderId: "94502268220",
     appId: "1:94502268220:web:61bfc4f8bdaa5842"
   };
