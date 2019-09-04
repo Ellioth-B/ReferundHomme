@@ -36,16 +36,16 @@ export class SondageComponent implements OnInit, OnDestroy {
     this.pointA += 1;
     this.totalVotes += 1;
     this.updatePoints();
-    console.log(this.pointA + ' ' + this.pointB);
-    console.log(this.totalVotes);
+    /* console.log(this.pointA + ' ' + this.pointB);
+    console.log(this.totalVotes); */
   }
 
   addright() {
     this.pointB += 1;
     this.totalVotes += 1;
     this.updatePoints();
-    console.log(this.pointA + ' ' + this.pointB);
-    console.log(this.totalVotes);
+    /* console.log(this.pointA + ' ' + this.pointB);
+    console.log(this.totalVotes); */
   }
 
   updatePoints() {
