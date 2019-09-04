@@ -8,7 +8,7 @@ import { Sondage } from '../models/Model';
 })
 export class SondageService {
 
-  sondages : Sondage [] = [];
+  sondages: Sondage[] = [];
   sondagesSubject = new Subject<Sondage[]>();
 
   constructor() { }
@@ -21,7 +21,7 @@ export class SondageService {
     firebase.database().ref('/sondage').set(this.sondages);
   }
 
-  createSondage(newSondage : Sondage) {
+  createSondage(newSondage: Sondage) {
     this.sondages.push(newSondage);
     this.saveSondages();
     this.emitSondages();
@@ -47,7 +47,8 @@ export class SondageService {
     });
   }
 
-  updateSondage(sondage : Sondage, id: number) {
-    firebase.database().ref('/sondage/'+ id).update(sondage);
+  updateSondage(sondage: Sondage, id: number) {
+    firebase.database().ref('/sondage/' + id).update(sondage);
   }
+
 }

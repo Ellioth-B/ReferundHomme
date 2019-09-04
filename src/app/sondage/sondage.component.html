@@ -1,22 +1,35 @@
 <div class="container-fluid">
     <h4 class="titreSondage">Sondages actuelles</h4>
-    <div class="cardSondage" style="width: 18rem;" >
+    <div class="cardSondage" style="width: 18rem;">
         <div class="card-body" *ngFor="let sondage of sondages; let i = index">
             <h5 class="card-title">{{sondage.title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{sondage.subtitle}}</h6>
             <p class="card-text">{{sondage.description}}</p>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-                Rue Lafonte
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-                Place Delacour
-            </label>
+
+            <div class="vote" id="voting-box">
+                <div class="left" (click)="addleft()">
+                    <div class="text">
+                        <span class="option-size" id="size-one">Lieu 1</span>
+                        <br>
+                        <span class="option-title" id="option-one">Lieu 1</span>
+                    </div>
+                </div>
+                <div class="right" (click)="addright()">
+                    <div class="text">
+                        <span class="option-size" id="size-two">Lieu 2</span>
+                        <br>
+                        <span class="option-title" id="option-two">Lieu 2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- pas obliger d'y faire apparaitre aux users -->
+            <!-- <div class="resumer"> 
+                <div id="total-votes"></div>
+                <div id="total-left"></div>
+                <div id="total-right"></div>
+            </div> -->
+            <!-- pas obliger d'y faire apparaitre aux users -->
         </div>
     </div>
 </div>
