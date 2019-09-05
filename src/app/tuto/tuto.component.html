@@ -1,1 +1,16 @@
-<p>Texte en dur, instructions , idée du site...ect. A faire a la fin.</p>
+<div class="container-fluid">
+    <h4 class="titreNews" style="text-align: center;">Tutoriel</h4>
+    <div class="card mb-3" style="max-width: 540px;" *ngFor="let tuto of tutos; let i = index">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img [src]="tuto.photo" class="card-img" alt="photos news">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{tuto.title}}</h5>
+                    <p class="card-text">{{tuto.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,6 +14,7 @@ import { SigninComponent } from './admin/signin/signin.component';
 import { AdminAccueilComponent } from './admin/admin-accueil/admin-accueil.component';
 import { AdminActualiteComponent } from './admin/admin-actualite/admin-actualite.component';
 import { AdminSondageComponent } from './admin/admin-sondage/admin-sondage.component';
+import { AdminTutoComponent } from './admin/admin-tuto/admin-tuto.component';
 const appRoutes: Routes = [
   {
     path: '',
@@ -48,6 +49,10 @@ const appRoutes: Routes = [
     path: 'admin/sondage',
     component: AdminSondageComponent
   },
+  {
+    path: 'admin/instructions',
+    component: AdminTutoComponent
+  },
 ];
 
 @NgModule({
@@ -63,6 +68,7 @@ const appRoutes: Routes = [
     AdminAccueilComponent,
     AdminActualiteComponent,
     AdminSondageComponent,
+    AdminTutoComponent,
   ],
   imports: [
     BrowserModule,
