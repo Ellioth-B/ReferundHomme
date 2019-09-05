@@ -6,5 +6,5 @@ export class Actualite {
 
 export class Sondage {
     
-    constructor( public title: string, public subtitle: string, public description: string,) {}
+    constructor( public title: string, public subtitle: string, public description: string, public lieu_un: string, public lieu_deux: string) {}
 }

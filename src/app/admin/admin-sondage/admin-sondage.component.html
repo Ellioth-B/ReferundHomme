@@ -9,12 +9,20 @@
             <textarea class="form-control" id="title" placeholder="Titre" formControlName="title" rows="1"></textarea>
         </div>
         <div class="form-group">
-            <textarea class="form-control" id="subtitle" placeholder="Sous-titre ou lieux" formControlName="subtitle"
+            <textarea class="form-control" id="subtitle" placeholder="Sous-titre optionnel" formControlName="subtitle"
                 rows="1"></textarea>
         </div>
         <div class="form-group">
             <textarea class="form-control" id="description" placeholder="Description" formControlName="description"
                 rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="lieu_un" placeholder="Lieu numéro un" formControlName="lieu_un"
+                rows="1"></textarea>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="lieu_deux" placeholder="Lieu numéro deux" formControlName="lieu_deux"
+                rows="1"></textarea>
         </div>
         <button class="btn btn-primary float-right" type="submit" [disabled]="sondageForm.invalid">Enregistrer</button>
     </form>
@@ -25,19 +33,24 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="row">
-                        <h3 class="font-weight-normal pl-3">{{sondage.title}}</h3>
+                        <h3 class="pl-3">{{sondage.title}}</h3>
                     </div>
                     <div class="row">
                         <h4 class="font-weight-normal pl-3">{{sondage.subtitle}}</h4>
                         <div class="ml-auto">
                             <button class="btn btn-primary m-1" (click)="onEditSondage(sondage, i)"><i
-                                    class="fas fa-edit"></i></button>
+                                class="fas fa-edit"></i>
+                            </button>
                             <button class="btn btn-danger m-1" (click)="onDeleteSondage(sondage)"><i
-                                    class="fas fa-trash-alt"></i></button>
+                                class="fas fa-trash-alt"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <h4 class="font-weight-normal">{{sondage.lieu_un}}</h4>
+            <p> ou </p>
+            <h4 class="font-weight-normal">{{sondage.lieu_deux}}</h4>
             <p>{{sondage.description}}</p>
         </div>
     </div>

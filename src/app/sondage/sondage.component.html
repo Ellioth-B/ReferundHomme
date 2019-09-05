@@ -9,16 +9,16 @@
             <div class="vote" id="voting-box">
                 <div class="left" (click)="addleft()">
                     <div class="text">
-                        <span class="option-size" id="size-one">Lieu 1</span>
+                        <span class="option-size" id="size-one"></span>
                         <br>
-                        <span class="option-title" id="option-one">Lieu 1</span>
+                        <span class="option-title" id="option-one">{{sondage.lieu_un}}</span>
                     </div>
                 </div>
                 <div class="right" (click)="addright()">
                     <div class="text">
-                        <span class="option-size" id="size-two">Lieu 2</span>
+                        <span class="option-size" id="size-two"></span>
                         <br>
-                        <span class="option-title" id="option-two">Lieu 2</span>
+                        <span class="option-title" id="option-two">{{sondage.lieu_deux}}</span>
                     </div>
                 </div>
             </div>

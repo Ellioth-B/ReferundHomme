@@ -33,8 +33,10 @@ export class AdminSondageComponent implements OnInit, OnDestroy {
     this.sondageForm = this.formBuilder.group({
       id: [''],
       title: ['', Validators.required],
-      subtitle: ['', Validators.required],
-      description: ['', Validators.required]
+      subtitle: [''],
+      description: ['', Validators.required],
+      lieu_un: ['', Validators.required],
+      lieu_deux: ['', Validators.required]
     });
   }
 
@@ -48,7 +50,9 @@ export class AdminSondageComponent implements OnInit, OnDestroy {
     const title = this.sondageForm.get('title').value;
     const subtitle = this.sondageForm.get('subtitle').value;
     const description = this.sondageForm.get('description').value;
-    const newSondage = new Sondage(title, subtitle, description);
+    const lieu_un = this.sondageForm.get('lieu_un').value;
+    const lieu_deux = this.sondageForm.get('lieu_deux').value;
+    const newSondage = new Sondage(title, subtitle, description, lieu_un, lieu_deux);
 
     if(this.editSondage == true) {
       this.sondagesService.updateSondage(newSondage, id)
@@ -67,6 +71,8 @@ export class AdminSondageComponent implements OnInit, OnDestroy {
     this.sondageForm.get('title').setValue(sondage.title);
     this.sondageForm.get('subtitle').setValue(sondage.subtitle);
     this.sondageForm.get('description').setValue(sondage.description);
+    this.sondageForm.get('lieu_un').setValue(sondage.lieu_un);
+    this.sondageForm.get('lieu_deux').setValue(sondage.lieu_deux);
     this.editSondage = true;
   }
 
